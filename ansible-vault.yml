@@ -1,0 +1,11 @@
+---
+- name: anible playbook to test ansble vault
+  hosts: all
+  become: true
+  vars_files:
+    - vault-pass.yml      
+  tasks:
+    - name: clone a repo
+      git:
+        repo: https://allancarlosvr:{{ password }}@github.com/allancarlosvr/vault.git     
+        dest: /opt/ansadmin/test-vault
